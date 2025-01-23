@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>Aromantica.co</title>
+    <style>
+        /* Product Gallery */
+        .product-gallery {
+            padding: 40px 20px;
+            background-color: whitesmoke;
+        }
+
+        .product-gallery .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-gallery .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product-gallery .gallery-item {
+            text-align: center;
+        }
+
+        .product-gallery img {
+            width: 250px; /* Adjust size as needed */
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-gallery .product-name {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    </style>
+
+    <!-- Product Gallery 1 -->
+    <div id="product-gallery-1" class="product-gallery">
+        <h2 class="gallery-header">For Her's Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <img src="picture/rose.jpg" alt="Rose">
+                <div class="product-name">Rose</div>
+            </div>
+            <div class="gallery-item">
+                <img src="picture/in the star.jpg" alt="In The Star">
+                <div class="product-name">In The Star</div>
+            </div>
+            <div class="gallery-item">
+                <img src="picture/thousand wishes.jpg" alt="Thousand Wishes">
+                <div class="product-name">Thousnd Wishes</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-container"></div>
+
+    <!-- Product Gallery 2 -->
+ <div id="product-gallery-2" class="product-gallery">
+        <h2 class="gallery-header">For Him's Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <img src="picture/dream bright.jpg" alt="Dream Bright">
+                <div class="product-name">Dream Bright</div>
+            </div>
+            <div class="gallery-item">
+                <img src="picture/gignham.jpg" alt="Gingham">
+                <div class="product-name">Gingham</div>
+            </div>
+            <div class="gallery-item">
+                <img src="picture/sensual amber.jpg" alt="Sensual Amber">
+                <div class="product-name">Sensual Amber</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

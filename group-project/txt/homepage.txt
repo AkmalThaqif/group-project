@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Aromantica.co</title>
+</head>
+<body>
+
+    <section class="main-section">
+        <div class="left">
+            <div class="text-overlay">
+                <span>Trendy Scent</span>
+            </div>
+        </div>
+        <div class="right">
+            <div class="text-overlay">
+                <span>Always Iconic</span>
+            </div>
+        </div>
+    </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bottom">
+        <p>&copy; 2025 AROMANTICA. All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>
+
