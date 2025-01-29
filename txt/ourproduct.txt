@@ -1,0 +1,492 @@
+<html>
+<head>
+    <title>Aromantica.co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffd1dc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffe4e9;
+            margin-bottom: 50px;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .banner img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .banner-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .banner-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Text and Image Section */
+        .text-image-section {
+            padding: 50px;
+            background-color: #ffe4e9;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .text-image-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .text-image-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-image-item img {
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.6s;
+        }
+
+        .text-image-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .text-content {
+            width: 60%;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        /* Product Gallery with Different Background */
+        .product-gallery-alt {
+            padding: 50px 30px;
+            background-color: #f0e68c;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery-alt .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .product-gallery-alt .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Card Container */
+        .product-gallery-alt .gallery-item {
+            perspective: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery-alt .card {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease, transform-origin 0.3s ease;
+        }
+
+        .product-gallery-alt .card .front,
+        .product-gallery-alt .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-gallery-alt .card .front {
+            background-color: #fff;
+        }
+
+        .product-gallery-alt .card .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-gallery-alt .card .back {
+            background-color: lightyellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-gallery-alt .gallery-item:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            padding: 50px 30px;
+            background-color: #ffd1dc;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Card Container */
+        .product-gallery .gallery-item {
+            perspective: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .gallery-item .card {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease, transform-origin 0.3s ease;
+        }
+
+        /* Card Front */
+        .card .front,
+        .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .front {
+            background-color: #fff;
+        }
+
+        .card .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Card Back */
+        .card .back {
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Hover Effect */
+        .gallery-item:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: auto;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="picture/bannertahunbaru.png" alt="Banner 1" class="active">
+        <img src="picture/bannernewproduct.png" alt="Banner 2">
+        <img src="picture/bannerevent.png" alt="Banner 3">
+        <div class="banner-controls">
+            <button onclick="prevSlide()">&#9664;</button>
+            <button onclick="nextSlide()">&#9654;</button>
+        </div>
+    </div>
+
+    <!-- Text and Image Section -->
+    <div class="text-image-section">
+        <h2 align="center">New Releases</h2>
+        <div class="text-image-item">
+            <img src="picture/oujantoffee.png" alt="Information 1">
+            <div class="text-content">
+                <h3>Oujan Eau de Parfum</h3>
+                <p>Oujan Eau de Parfum, our latest product that came out early this year. Oujan was inspired by many creamy scent fragrances like Stronger with You Intensely. This year, we finally succeed on creating our own unique and original scent
+                    that brings the vibe of a warm coffee shop. Oajan was crafted for masculine gentlemen that comes with the main note of toffee and caramel. With our new production of Oujan EDP,
+                    we highly hoped that our dearest customers enjoy and appreciate our new entry in the market. Sending loves from Aromantica.
+                </p>
+                <br>
+                <p>-Akmal Thaqif (Founder of Aromantica)</p>
+            </div>
+        </div>
+        <div class="text-image-item">
+            <img src="picture/delanisweet.png" alt="Information 2">
+            <div class="text-content">
+                <h3>Delani Eau de Parfum</h3>
+                <p>Delani Eau de Parfum is our second handcrafted fragrances, designed for elegant and independent women out there. Delani was inspired by Victoria Secret's Pure Seduction as it was one of our favourite scents of all time.
+                    With the development through out the year, we finally come with the idea of crafting our own fruitty scent that shall improve our sale in the market. Delani EDP comes with the main notes of Fruitty and Sweet, making those elegant lady
+                    appears more beautiful, glowing and fresh all the time. With that being said, this is our gift for our customers to start the year with the scents of Aromantica. Enjoy.
+                </p>
+                <br>
+                <p>-Aisyah Raihanah (Chief Marketing Officer)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Gallery 1 -->
+    <div id="product-gallery-1" class="product-gallery">
+        <h2 class="gallery-header">For Her's Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/rose.jpg" alt="Rose">
+                    </div>
+                    <div class="back">
+                        <p>Rose</p>
+                        <ul>
+                            <li>Rose</li>
+                            <li>Musky</li>
+                            <li>White Floral</li>
+                            <li>Floral</li>
+                            <li>Powdery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/inthestar.jpg" alt="In The Star">
+                    </div>
+                    <div class="back">
+                        <p>In The Star</p>
+                        <ul>
+                            <li>Oud</li>
+                            <li>Citrus</li>
+                            <li>Amber</li>
+                            <li>Powdery</li>
+                            <li>Musky</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/thousandwishes.jpg" alt="Thousand Wishes">
+                    </div>
+                    <div class="back">
+                        <p>Thousand Wishes</p>
+                        <ul>
+                            <li>Fruity</li>
+                            <li>Sweet</li>
+                            <li>Floral</li>
+                            <li>Fresh</li>
+                            <li>Champagne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Gallery 2 -->
+    <div id="product-gallery-2" class="product-gallery">
+        <h2 class="gallery-header">For Him's Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/dreambright.jpg" alt="Dream Bright">
+                    </div>
+                    <div class="back">
+                        <p>Dream Bright</p>
+                        <ul>
+                            <li>Vanilla</li>
+                            <li>Fruity</li>
+                            <li>Woody</li>
+                            <li>Powdery</li>
+                            <li>Sweet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/gignham.jpg" alt="Gingham">
+                    </div>
+                    <div class="back">
+                        <p>Gingham</p>
+                        <ul>
+                            <li>Floral</li>
+                            <li>Citrus</li>
+                            <li>Violet</li>
+                            <li>Sweet</li>
+                            <li>Powdery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/sensualamber.jpg" alt="Sensual Amber">
+                    </div>
+                    <div class="back">
+                        <p>Sensual Amber</p>
+                        <ul>
+                            <li>Amber</li>
+                            <li>Sweet</li>
+                            <li>Powdery</li>
+                            <li>Woody</li>
+                            <li>Vanilla</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alternate Product Gallery -->
+    <div id="product-gallery-3" class="product-gallery-alt">
+        <h2 class="gallery-header">Unisex Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/victusfruity.png" alt="Unisex 1">
+                    </div>
+                    <div class="back">
+                        <p>Victus Fruity</p>
+                        <ul>
+                            <li>Fresh</li>
+                            <li>Citrus</li>
+                            <li>Fruity</li>
+                            <li>Sweet</li>
+                            <li>Clean</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/victussummer.png" alt="Unisex 2">
+                    </div>
+                    <div class="back">
+                        <p>Victus Summer</p>
+                        <ul>
+                            <li>Coconut</li>
+                            <li>Mango</li>
+                            <li>Warm</li>
+                            <li>Fresh</li>
+                            <li>Green</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Aromantica.co. All Rights Reserved.
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner img');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+    </script>
+</body>
+</html>
