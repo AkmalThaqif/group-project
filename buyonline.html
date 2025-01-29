@@ -1,0 +1,265 @@
+<html>
+<head>
+    <title>Buy Online</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffd1dc;
+            margin: 0;
+            padding: 0;
+            animation: fadeInUp 1s ease-out;
+        }
+        .header {
+            background-color: #ffb6c1;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid #ffe4e9;
+        }
+
+        .product-card h3 {
+            padding: 15px;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            padding: 0 15px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .product-card button {
+            background-color: #ffb6c1;
+            border: none;
+            padding: 10px 20px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .product-card button:hover {
+            background-color: #ff69b4;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cart-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cart-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item p {
+            font-size: 1rem;
+        }
+
+        .checkout-button {
+            background-color: #ffb6c1;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #ff69b4;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Shop Now!</div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="picture/rose.jpg" alt="Rose Perfume">
+            <h3>Rose Perfume</h3>
+            <p>Price: RM10</p>
+            <p>A beautiful floral fragrance</p>
+            <button onclick="addToCart('Rose Perfume', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/dreambright.jpg" alt="Dream Bright">
+            <h3>Dream Bright</h3>
+            <p>Price: RM10</p>
+            <p>A sweet vanilla fragrance</p>
+            <button onclick="addToCart('Dream Bright', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/inthestar.jpg" alt="In The Star">
+            <h3>In The Star</h3>
+            <p>Price: RM10</p>
+            <p>Perfect for special occasions</p>
+            <button onclick="addToCart('In The Star', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/sensualamber.jpg" alt="Sensual Amber">
+            <h3>Sensual Amber</h3>
+            <p>Price: RM10</p>
+            <p>A calming warm fragrance</p>
+            <button onclick="addToCart('Sensual Amber', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/thousandwishes.jpg" alt="Thousand Wishes">
+            <h3>Thousand Wishes</h3>
+            <p>Price: RM10</p>
+            <p>Stands with its name</p>
+            <button onclick="addToCart('Thousand Wishes', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/gignham.jpg" alt="Gingham">
+            <h3>Gingham</h3>
+            <p>Price: RM10</p>
+            <p>Fresh and uplifting fragrance. Blue Ocean Breeze of Freshness</p>
+            <button onclick="addToCart('Gingham', 10)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/oujantoffee.png" alt="Oujan">
+            <h3>Oujan Eau de Parfum</h3>
+            <p>Price: RM89</p>
+            <p>The Aroma of a Warm Coffee Shop. An Aroma Indeed</p>
+            <button onclick="addToCart('Oajan EDP', 89)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/delanisweet.png" alt="Delani">
+            <h3>Delani Eau de Parfum</h3>
+            <p>Price: RM89</p>
+            <p>A Blast of Sweet Candy Scent. Just like an ol' Candy Shop</p>
+            <button onclick="addToCart('Delani EDP', 89)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/victussummer.png" alt="Victus Summer">
+            <h3>Victus Summer</h3>
+            <p>Price: RM50</p>
+            <p>Scenery of Summer, Just like the Beach</p>
+            <button onclick="addToCart('Victus Summer', 50)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="picture/victusfruity.png" alt="Victus Fruity">
+            <h3>Victus Fruity</h3>
+            <p>Price: RM50</p>
+            <p>A mix of Fruity Scent from Tropical to Exotic combination</p>
+            <button onclick="addToCart('Victus Fruity', 50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button class="checkout-button" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <a href="#top"><img src="picture/Back-to-Top-WordPress-Button-removebg-preview.png" width="200" height="100">
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Aromantica.co. All Rights Reserved.
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add item to the cart
+        function addToCart(productName, productPrice) {
+            cart.push({name: productName, price: productPrice});
+            localStorage.setItem('cart', JSON.stringify(cart)); // Store cart in localStorage
+            alert(`${productName} has been added to your cart.`);
+        }
+
+        // Proceed to checkout page
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some items to proceed.');
+                return;
+            }
+            
+        }
+    </script>
+</body>
+</html>
+

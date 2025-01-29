@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Aromantica Membership</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffd1dc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #641E16;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #ffd1dc;
+        }
+
+        .container {
+            flex: 1;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        form h2 {
+            margin-top: 0;
+            color: #641E16;
+            font-size: 2rem;
+        }
+
+        form label {
+            display: block;
+            margin: 20px 0 10px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        form input, form select, form textarea, form button {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #7d2d26;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        form button:hover {
+            background-color: #7d2d26;
+        }
+
+        .feedback {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback h2 {
+            margin-top: 0;
+            color: #641E16;
+        }
+
+        .feedback-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .customer-gallery {
+            text-align: center;
+        }
+
+        .customer-gallery h2 {
+            color: #641E16;
+            margin-bottom: 20px;
+        }
+
+        .customer-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .customer-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .customer-card:hover {
+            transform: scale(1.05);
+        }
+
+        .customer-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .customer-card p {
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #641E16;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Get On Board!!</h1>
+    </header>
+
+    <div class="container">
+        <!-- Registration Form -->
+        <form id="membershipForm">
+            <h2>Join Our Membership</h2>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="message">Message / Product Review</label>
+            <textarea id="message" name="message" rows="6" placeholder="Leave your feedback here..." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Feedback Section -->
+        <div class="feedback">
+            <h2>Customer Feedback</h2>
+            <div id="feedbackList">
+                <!-- Feedback items will appear here -->
+            </div>
+        </div>
+    </div>
+
+        <!-- Customer Gallery Section -->
+            <div class="customer-gallery">
+                <h2>Our Dearest Customers</h2>
+                <div class="customer-images">
+                    <div class="customer-card">
+                        <img src="picture/hanimfeedback.jpg" alt="Customer 1">
+                        <p>Hanim & Sara (Singer) - Happy with our fragrances!</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/aimanfeedback.jpg" alt="Customer 2">
+                        <p>Aimanhakeem2004 (Actor) - One of the best scent I've ever smelled.</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/danishfeedback.jpg" alt="Customer 3">
+                        <p>Ferbygais (Profesional E-sport Player) - GGWP for Aromantica. Well Played Bro!</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/shahfeedback.jpg" alt="Customer 4">
+                        <p>Sickimran (Founder of Aurora Cafe) - Delicious yet Scrumptios scent indeed.</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/nabil.jpg" alt="Customer 5">
+                        <p>Nabil (Host) - Absolutely loves the new line up.</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/reenfeedback.jpg" alt="Customer 6">
+                        <p>Reen (Famous TikToker) - Love the theme and the concept of Aromantica!</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/haiqalfeedback.jpg" alt="Customer 7">
+                        <p>Qalskie (Streamer) - In Malay we said, "Mantap la Boss". Kudos to Aromantica!</p>
+                    </div>
+                    <div class="customer-card">
+                        <img src="picture/sophefeedback.jpg" alt="Customer 8">
+                        <p>Sophe (Content Creator) - Loves the unique scent combinations!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top"><img src="picture/Back-to-Top-WordPress-Button-removebg-preview.png" width="200" height="100">
+        </a>
+
+    <footer>
+        <p>&copy; 2025 Aromantica Fragrance. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('membershipForm');
+        const feedbackList = document.getElementById('feedbackList');
+
+        // Load feedback from local storage
+        function loadFeedback() {
+            const feedback = JSON.parse(localStorage.getItem('feedback')) || [];
+            feedbackList.innerHTML = '';
+            feedback.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('feedback-item');
+                div.innerHTML = `<strong>${item.name}</strong> (${item.date})<br>${item.message}`;
+                feedbackList.appendChild(div);
+            });
+        }
+
+        // Save feedback to local storage
+        function saveFeedback(feedback) {
+            const feedbackArray = JSON.parse(localStorage.getItem('feedback')) || [];
+            feedbackArray.push(feedback);
+            localStorage.setItem('feedback', JSON.stringify(feedbackArray));
+        }
+
+        // Form submit event
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const message = document.getElementById('message').value;
+
+            const feedback = {
+                name: `${firstName} ${lastName}`,
+                date: new Date().toLocaleDateString(),
+                message
+            };
+
+            saveFeedback(feedback);
+            loadFeedback();
+
+            alert('Your message has been submitted!');
+            form.reset();
+        });
+
+        // Initialize feedback on page load
+        loadFeedback();
+    </script>
+</body>
+</html>
+
+
+
+

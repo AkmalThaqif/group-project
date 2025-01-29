@@ -1,0 +1,553 @@
+<html>
+<head>
+    <title>Aromantica.co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffd1dc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .banner-section {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .banner-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Slight overlay for text readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .banner-text {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .banner-text h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .banner-text p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Text and Image Section */
+        .text-image-section {
+            padding: 50px;
+            background-color: #ffe4e9;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .text-image-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .text-image-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-image-item img {
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.6s;
+        }
+
+        .text-image-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .text-content {
+            width: 60%;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        /* Product Gallery */
+        .product-gallery, .product-gallery-alt {
+            padding: 50px 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            perspective: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .card {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease, transform-origin 0.3s ease;
+        }
+
+        .card .front, .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .front {
+            background-color: #fff;
+        }
+
+        .card .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .back {
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .gallery-item:hover .card {
+            transform: rotateY(180deg);
+        }
+         /* Product Gallery with Different Background */
+         .product-gallery-alt {
+            padding: 50px 30px;
+            background-color: #f0e68c;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery-alt .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .product-gallery-alt .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Card Container */
+        .product-gallery-alt .gallery-item {
+            perspective: 1000px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery-alt .card {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 0.6s ease, transform-origin 0.3s ease;
+        }
+
+        .product-gallery-alt .card .front,
+        .product-gallery-alt .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-gallery-alt .card .front {
+            background-color: #fff;
+        }
+
+        .product-gallery-alt .card .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-gallery-alt .card .back {
+            background-color: lightyellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-gallery-alt .gallery-item:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            padding: 50px 30px;
+            background-color: #ffd1dc;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery .gallery-header {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-gallery .gallery-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+ /* Embedded Video Section */
+ .embedded-video {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0; /* Jarak atas dan bawah */
+            padding-bottom: 20px; /* Elakkan bertindih dengan footer */
+            text-align: center;
+        }
+
+        .embedded-video iframe {
+            border-radius: 10px;
+            max-width: 100%;
+            width: 560px;
+            height: 315px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+
+        .video-caption {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 15px;
+            max-width: 80%;
+        }
+
+        @media (max-width: 600px) {
+            .embedded-video iframe {
+                width: 90%;
+                height: auto;
+            }
+
+            .video-caption {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <div class="banner-section">
+        <video autoplay loop muted>
+            <source src="video/videoperfumegif.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="banner-overlay">
+            <div class="banner-text">
+                <h1>Explore Our Collection</h1>
+                <p>Immerse yourself in the world of captivating fragrances.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text and Image Section -->
+    <div class="text-image-section">
+        <h2 align="center">New Releases</h2>
+        <div class="text-image-item">
+            <img src="picture/oujantoffee.png" alt="Information 1">
+            <div class="text-content">
+                <h3>Oujan Eau de Parfum</h3>
+                <p>Oujan Eau de Parfum, our latest product that came out early this year. Oujan was inspired by many creamy scent fragrances like Stronger with You Intensely. This year, we finally succeed on creating our own unique and original scent
+                    that brings the vibe of a warm coffee shop. Oajan was crafted for masculine gentlemen that comes with the main note of toffee and caramel. With our new production of Oujan EDP,
+                    we highly hoped that our dearest customers enjoy and appreciate our new entry in the market. Sending loves from Aromantica.
+                </p>
+                <br>
+                <p>-Akmal Thaqif (Founder of Aromantica)</p>
+            </div>
+        </div>
+        <div class="text-image-item">
+            <img src="picture/delanisweet.png" alt="Information 2">
+            <div class="text-content">
+                <h3>Delani Eau de Parfum</h3>
+                <p>Delani Eau de Parfum is our second handcrafted fragrances, designed for elegant and independent women out there. Delani was inspired by Victoria Secret's Pure Seduction as it was one of our favourite scents of all time.
+                    With the development through out the year, we finally come with the idea of crafting our own fruitty scent that shall improve our sale in the market. Delani EDP comes with the main notes of Fruitty and Sweet, making those elegant lady
+                    appears more beautiful, glowing and fresh all the time. With that being said, this is our gift for our customers to start the year with the scents of Aromantica. Enjoy.
+                </p>
+                <br>
+                <p>-Aisyah Raihanah (Chief Marketing Officer)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Gallery 1 -->
+    <div id="product-gallery-1" class="product-gallery">
+        <h2 class="gallery-header">For Her's Collection</h2>
+        <div class="gallery-section">
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/rose.jpg" alt="Rose">
+                    </div>
+                    <div class="back">
+                        <p>Rose</p>
+                        <ul>
+                            <li>Rose</li>
+                            <li>Musky</li>
+                            <li>White Floral</li>
+                            <li>Floral</li>
+                            <li>Powdery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/inthestar.jpg" alt="In The Star">
+                    </div>
+                    <div class="back">
+                        <p>In The Star</p>
+                        <ul>
+                            <li>Oud</li>
+                            <li>Citrus</li>
+                            <li>Amber</li>
+                            <li>Powdery</li>
+                            <li>Musky</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="card">
+                    <div class="front">
+                        <img src="picture/thousandwishes.jpg" alt="Thousand Wishes">
+                    </div>
+                    <div class="back">
+                        <p>Thousand Wishes</p>
+                        <ul>
+                            <li>Fruity</li>
+                            <li>Sweet</li>
+                            <li>Floral</li>
+                            <li>Fresh</li>
+                            <li>Powdery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Product Gallery 2 -->
+<div id="product-gallery-2" class="product-gallery">
+    <h2 class="gallery-header">For Him's Collection</h2>
+    <div class="gallery-section">
+        <div class="gallery-item">
+            <div class="card">
+                <div class="front">
+                    <img src="picture/dreambright.jpg" alt="Dream Bright">
+                </div>
+                <div class="back">
+                    <p>Dream Bright</p>
+                    <ul>
+                        <li>Vanilla</li>
+                        <li>Fruity</li>
+                        <li>Woody</li>
+                        <li>Powdery</li>
+                        <li>Sweet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="card">
+                <div class="front">
+                    <img src="picture/gignham.jpg" alt="Gingham">
+                </div>
+                <div class="back">
+                    <p>Gingham</p>
+                    <ul>
+                        <li>Floral</li>
+                        <li>Citrus</li>
+                        <li>Violet</li>
+                        <li>Sweet</li>
+                        <li>Powdery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="card">
+                <div class="front">
+                    <img src="picture/sensualamber.jpg" alt="Sensual Amber">
+                </div>
+                <div class="back">
+                    <p>Sensual Amber</p>
+                    <ul>
+                        <li>Amber</li>
+                        <li>Sweet</li>
+                        <li>Powdery</li>
+                        <li>Woody</li>
+                        <li>Vanilla</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alternate Product Gallery -->
+<div id="product-gallery-3" class="product-gallery-alt">
+    <h2 class="gallery-header">Unisex Collection</h2>
+    <div class="gallery-section">
+        <div class="gallery-item">
+            <div class="card">
+                <div class="front">
+                    <img src="picture/victus(unisex).png" alt="Unisex 1">
+                </div>
+                <div class="back">
+                    <p>Victus Fruity</p>
+                    <ul>
+                        <li>Fresh</li>
+                        <li>Citrus</li>
+                        <li>Fruity</li>
+                        <li>Sweet</li>
+                        <li>Clean</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="card">
+                <div class="front">
+                    <img src="picture/victus(unisex).png" alt="Unisex 2">
+                </div>
+                <div class="back">
+                    <p>Victus Summer</p>
+                    <ul>
+                        <li>Coconut</li>
+                        <li>Mango</li>
+                        <li>Warm</li>
+                        <li>Fresh</li>
+                        <li>Green</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- Embedded Video Section -->
+ <div class="embedded-video">
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/h6-CRM5eBsM?si=_1ZQlwnayu8kTqlt" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+    <p class="video-caption">Our Inspiration towards becoming Greater than Ever</p>
+</div>
+  
+<a href="#top"><img src="picture/Back-to-Top-WordPress-Button-removebg-preview.png" width="200" height="100">
+</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Aromantica. All rights reserved.</p>
+    </footer>
+</body>
+</html>
